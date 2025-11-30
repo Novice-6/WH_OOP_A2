@@ -2,43 +2,27 @@
  * 游客类，继承自 Person，封装游客特有属性
  */
 public class Visitor extends Person {
-    // 2个特有实例变量（Part 1 要求）
-    private String visitorId;
-    private String membershipType; // 会员类型（如 "Standard"、"VIP"）
+    private String ticketId;
+    private String membershipType; // e.g., "Regular", "VIP"
 
-    // 默认构造函数（Part 1 要求）
-    public Visitor() {}
+    public Visitor() {
+    }
 
-    // 带参构造函数（初始化自身+父类属性，Part 1 要求）
-    public Visitor(String id, String name, int age, String visitorId, String membershipType) {
-        super(id, name, age);
-        this.visitorId = visitorId;
+    public Visitor(String name, int age, String gender, String ticketId, String membershipType) {
+        super(name, age, gender); // 调用父类构造器
+        this.ticketId = ticketId;
         this.membershipType = membershipType;
     }
 
-    // Getter 和 Setter（Part 1 要求）
-    public String getVisitorId() {
-        return visitorId;
-    }
+    // Getters and Setters
+    public String getTicketId() { return ticketId; }
+    public void setTicketId(String ticketId) { this.ticketId = ticketId; }
 
-    public void setVisitorId(String visitorId) {
-        this.visitorId = visitorId;
-    }
+    public String getMembershipType() { return membershipType; }
+    public void setMembershipType(String membershipType) { this.membershipType = membershipType; }
 
-    public String getMembershipType() {
-        return membershipType;
-    }
-
-    public void setMembershipType(String membershipType) {
-        this.membershipType = membershipType;
-    }
-
-    /**
-     * 重写 toString，方便打印游客详情（支持 Part 3/4/5 的打印功能）
-     */
     @Override
     public String toString() {
-        return String.format("Visitor[ID: %s, Name: %s, Age: %d, Membership: %s]",
-                visitorId, getName(), getAge(), membershipType);
+        return super.toString() + ", TicketID: " + ticketId + ", Membership: " + membershipType;
     }
 }
