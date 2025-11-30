@@ -3,43 +3,33 @@
  * 因不会直接实例化，设计为抽象类（Part 2 要求）
  */
 public abstract class Person {
-    // 3个实例变量（Part 1 要求）
-    private String id;
     private String name;
     private int age;
+    private String gender;
 
-    // 默认构造函数（Part 1 要求）
-    public Person() {}
+    // 默认构造函数
+    public Person() {
+    }
 
-    // 带参构造函数（Part 1 要求）
-    public Person(String id, String name, int age) {
-        this.id = id;
+    // 带参构造函数
+    public Person(String name, int age, String gender) {
         this.name = name;
         this.age = age;
+        this.gender = gender;
     }
 
-    // Getter 和 Setter（Part 1 要求）
-    public String getId() {
-        return id;
-    }
+    // Getters and Setters
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
 
-    public String getName() {
-        return name;
-    }
+    public String getGender() { return gender; }
+    public void setGender(String gender) { this.gender = gender; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
+    @Override
+    public String toString() {
+        return "Name: " + name + ", Age: " + age + ", Gender: " + gender;
     }
 }
