@@ -1,35 +1,44 @@
 /**
- * 员工类，继承自 Person，封装员工特有属性
+ * The Employee class inherits from the Person class and represents employee information
+ * Extend employee-specific attributes: employee ID and position
  */
 public class Employee extends Person {
-    // 2个特有实例变量（Part 1 要求）
+    // Employee ID, used to uniquely identify each employee
     private String employeeId;
-    private String position; // 职位（如 "Roller Coaster Operator"）
+    private String jobTitle;
 
-    // 默认构造函数（Part 1 要求）
-    public Employee() {}
-
-    // 带参构造函数（初始化自身+父类属性，Part 1 要求）
-    public Employee(String id, String name, int age, String employeeId, String position) {
-        super(id, name, age);
-        this.employeeId = employeeId;
-        this.position = position;
+    public Employee() {
     }
 
-    // Getter 和 Setter（Part 1 要求）
+    /**
+     * A parameter constructor that initializes all properties of the Employee object
+     *
+     * @param name The employee's name, passed to the parent Person class
+     * @param age The age of the employee, passed to the parent Person class
+     * @param gender The gender of the employee, passed to the parent Person class
+     * @param employeeId Employee ID
+     * @param jobTitle Employee job title
+     */
+    public Employee(String name, int age, String gender, String employeeId, String jobTitle) {
+        // Call the constructor of the parent class Person to initialize the underlying properties
+        super(name, age, gender);
+        // Initialize employee-specific attributes
+        this.employeeId = employeeId;
+        this.jobTitle = jobTitle;
+    }
+
+    // The getter and setter methods are used to access and modify properties in the same way as in the Person class
     public String getEmployeeId() {
         return employeeId;
     }
-
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
 
-    public String getPosition() {
-        return position;
+    public String getJobTitle() {
+        return jobTitle;
     }
-
-    public void setPosition(String position) {
-        this.position = position;
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
     }
 }

@@ -1,44 +1,52 @@
 /**
- * 游客类，继承自 Person，封装游客特有属性
+ * The Visitor class inherits from the Person class and represents visitor information
+ * Extend visitor-specific attributes: ticket ID and membership type
  */
 public class Visitor extends Person {
-    // 2个特有实例变量（Part 1 要求）
-    private String visitorId;
-    private String membershipType; // 会员类型（如 "Standard"、"VIP"）
+    // Ticket ID, which uniquely identifies each visitor's ticket
+    private String ticketId;
+    private String membershipType; // e.g., "Regular", "VIP"
 
-    // 默认构造函数（Part 1 要求）
-    public Visitor() {}
+    public Visitor() {
+    }
 
-    // 带参构造函数（初始化自身+父类属性，Part 1 要求）
-    public Visitor(String id, String name, int age, String visitorId, String membershipType) {
-        super(id, name, age);
-        this.visitorId = visitorId;
+    /**
+     * A parameter constructor that initializes all properties of the Visitor object
+     *
+     * @param name The visitor's name, passed to the parent Person class
+     * @param age The visitor's age, which is passed to the parent Person class
+     * @param gender The gender of the visitor, passed to the parent Person class
+     * @param ticketId Visitor ticket ID
+     * @param membershipType Visitor membership type
+     */
+    public Visitor(String name, int age, String gender, String ticketId, String membershipType) {
+        // Call the constructor of the parent class Person to initialize the underlying properties
+        super(name, age, gender);
+        this.ticketId = ticketId;
         this.membershipType = membershipType;
     }
 
-    // Getter 和 Setter（Part 1 要求）
-    public String getVisitorId() {
-        return visitorId;
+    // The getter and setter methods are used to access and modify properties in the same way as in the Person class
+    public String getTicketId() {
+        return ticketId;
     }
-
-    public void setVisitorId(String visitorId) {
-        this.visitorId = visitorId;
+    public void setTicketId(String ticketId) {
+        this.ticketId = ticketId;
     }
 
     public String getMembershipType() {
         return membershipType;
     }
-
     public void setMembershipType(String membershipType) {
         this.membershipType = membershipType;
     }
 
     /**
-     * 重写 toString，方便打印游客详情（支持 Part 3/4/5 的打印功能）
+     * Override the toString method to return a string containing the guest information
+     * Inherit and extend the toString method from the parent Person class to add the ticket ID and membership type information
      */
     @Override
     public String toString() {
-        return String.format("Visitor[ID: %s, Name: %s, Age: %d, Membership: %s]",
-                visitorId, getName(), getAge(), membershipType);
+        return super.toString() + ", TicketID: " + ticketId + ", Membership: " + membershipType;
     }
 }

@@ -1,19 +1,30 @@
-/**
- * 骑乘设施接口，定义核心行为（Part 2 要求）
- * 用于抽象骑乘的队列管理、历史记录、运行逻辑
- */
+// The RideInterface interface defines the standard operations of the amusement park management system
 public interface RideInterface {
-    // 队列管理方法（Part 3 要求）
+
+    //Add visitors to the waiting queue
     void addVisitorToQueue(Visitor visitor);
-    void removeVisitorFromQueue();
+
+    //Remove visitors from the waiting queue
+    void removeVisitorFromQueue(Visitor visitor);
+
+    //Prints information about all visitors currently in the waiting queue
     void printQueue();
 
-    // 历史记录方法（Part 4A 要求）
+    //Add the visitor to the ride history
     void addVisitorToHistory(Visitor visitor);
+
+    /**
+     * Checks whether the designated tourist exists in the ride history
+     * It returns true for presence and false for absence
+     */
     boolean checkVisitorFromHistory(Visitor visitor);
+
+    //Gets the total number of visitors in ride history
     int numberOfVisitors();
+
+    //Print all the visitor information in the ride history
     void printRideHistory();
 
-    // 骑乘运行方法（Part 5 要求）
+    //One cycle is run to process the visitors in the waiting queue
     void runOneCycle();
 }
